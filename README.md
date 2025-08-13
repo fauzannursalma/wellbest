@@ -268,6 +268,4 @@ For support and questions:
 
 ---
 
-<p align="center">
-Made with ❤️ by <a href="https://github.com/fauzannursalma">Fauzan Nur Salma</a>
 </p>
