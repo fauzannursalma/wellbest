@@ -1,61 +1,273 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# WellBest - Manufacturing Management System
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://img.shields.io/badge/Laravel-12.x-red?style=for-the-badge&logo=laravel" alt="Laravel Version">
+  <img src="https://img.shields.io/badge/PHP-8.2+-blue?style=for-the-badge&logo=php" alt="PHP Version">
+  <img src="https://img.shields.io/badge/Filament-3.3-orange?style=for-the-badge&logo=filament" alt="Filament Version">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License">
 </p>
 
-## About Laravel
+## 📋 About WellBest
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+WellBest is a comprehensive manufacturing management system built with Laravel and Filament Admin Panel. The application provides a robust solution for managing manufacturing operations, including machine management, process control, quality assurance, and defect tracking.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+### 🎯 Key Features
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+-   **Machine Management**: Complete machine inventory with categories, warehouses, and status tracking
+-   **Process Control**: Structured process workflows with ordering and categorization
+-   **Quality Management**: NG (No Good) defect tracking and classification system
+-   **User Management**: Role-based access control with permissions
+-   **Admin Panel**: Modern, responsive admin interface powered by Filament
+-   **Data Integrity**: Soft deletes and audit trails for critical data
 
-## Learning Laravel
+### 🏗️ System Architecture
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+The system is built around four core modules:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+1. **Machine Categories**: Organize machines by type and function
+2. **Machines**: Individual machine records with detailed specifications
+3. **Processes**: Manufacturing process definitions and workflows
+4. **NG Defects**: Quality control and defect classification
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 🚀 Technology Stack
 
-## Laravel Sponsors
+-   **Backend**: Laravel 12.x (PHP 8.2+)
+-   **Admin Panel**: Filament 3.3
+-   **Database**: SQLite (configurable for MySQL/PostgreSQL)
+-   **Frontend**: Tailwind CSS 4.0
+-   **Build Tool**: Vite 7.0
+-   **Authentication**: Laravel Sanctum
+-   **Permissions**: Spatie Laravel Permission with Filament Shield
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📦 Installation
 
-### Premium Partners
+### Prerequisites
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+-   PHP 8.2 or higher
+-   Composer
+-   Node.js & NPM
+-   SQLite (or MySQL/PostgreSQL)
 
-## Contributing
+### Quick Start
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+1. **Clone the repository**
 
-## Code of Conduct
+    ```bash
+    git clone https://github.com/fauzannursalma/wellbest.git
+    cd wellbest
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. **Install PHP dependencies**
 
-## Security Vulnerabilities
+    ```bash
+    composer install
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+3. **Install Node dependencies**
 
-## License
+    ```bash
+    npm install
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+4. **Environment setup**
+
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
+
+5. **Database setup**
+
+    ```bash
+    touch database/database.sqlite
+    php artisan migrate
+    php artisan db:seed
+    ```
+
+6. **Create admin user**
+
+    ```bash
+    php artisan make:filament-user
+    ```
+
+7. **Start development servers**
+
+    ```bash
+    composer run dev
+    ```
+
+    This will start all services concurrently:
+
+    - Laravel development server (port 8000)
+    - Queue worker
+    - Log viewer (Pail)
+    - Vite asset compiler
+
+## 🔧 Configuration
+
+### Database Configuration
+
+Update your `.env` file with database credentials:
+
+```env
+DB_CONNECTION=sqlite
+DB_DATABASE=/absolute/path/to/database/database.sqlite
+```
+
+For MySQL/PostgreSQL:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=wellbest
+DB_USERNAME=your_username
+DB_PASSWORD=your_password
+```
+
+### Filament Configuration
+
+The admin panel is accessible at `/admin`. Configure additional settings in `config/filament.php`.
+
+## 📊 Database Schema
+
+### Core Tables
+
+-   **machine_categories**: Machine type classifications
+-   **machines**: Individual machine records
+-   **processes**: Manufacturing process definitions
+-   **ng_defects**: Quality defect classifications
+-   **users**: System users with role-based permissions
+
+### Relationships
+
+-   Machines belong to Machine Categories
+-   Processes are organized by Machine Categories
+-   Soft deletes enabled for data integrity
+-   Audit trails through Laravel timestamps
+
+## 🛡️ Security & Permissions
+
+The application implements comprehensive role-based access control:
+
+-   **Super Admin**: Full system access
+-   **Manager**: Department-level management
+-   **Operator**: Limited operational access
+-   **Viewer**: Read-only access
+
+Permissions are managed through Spatie Laravel Permission with Filament Shield integration.
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+composer test
+```
+
+For continuous testing during development:
+
+```bash
+php artisan test --parallel
+```
+
+## 📈 Performance
+
+### Optimization Features
+
+-   **Database Indexing**: Optimized queries for large datasets
+-   **Eager Loading**: Prevents N+1 query problems
+-   **Soft Deletes**: Maintains data integrity without hard deletions
+-   **Cache Integration**: Laravel cache for improved performance
+
+### Production Deployment
+
+```bash
+composer install --optimize-autoloader --no-dev
+php artisan config:cache
+php artisan route:cache
+php artisan view:cache
+npm run build
+```
+
+## 🔄 Development Workflow
+
+### Code Standards
+
+-   PSR-12 coding standards
+-   Laravel Pint for code formatting
+-   PHPUnit for testing
+-   Conventional commits
+
+### Available Commands
+
+```bash
+# Development server with hot reload
+composer run dev
+
+# Code formatting
+./vendor/bin/pint
+
+# Run tests
+composer test
+
+# Clear all caches
+php artisan optimize:clear
+```
+
+## 📚 API Documentation
+
+The application provides RESTful APIs for integration:
+
+-   **Machines API**: CRUD operations for machine management
+-   **Processes API**: Process workflow management
+-   **Defects API**: Quality control data access
+-   **Users API**: User management endpoints
+
+## 🤝 Contributing
+
+We welcome contributions! Please follow these guidelines:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes with tests
+4. Ensure code passes all checks
+5. Submit a pull request
+
+### Development Setup
+
+```bash
+# Install development dependencies
+composer install
+npm install
+
+# Set up pre-commit hooks
+php artisan ide-helper:generate
+php artisan ide-helper:models
+```
+
+## 📄 License
+
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## 🆘 Support
+
+For support and questions:
+
+-   **Issues**: [GitHub Issues](https://github.com/fauzannursalma/wellbest/issues)
+-   **Discussions**: [GitHub Discussions](https://github.com/fauzannursalma/wellbest/discussions)
+-   **Documentation**: [Wiki](https://github.com/fauzannursalma/wellbest/wiki)
+
+## 🏷️ Version History
+
+-   **v1.0.0** - Initial release with core functionality
+-   Machine and process management
+-   NG defect tracking
+-   User management with roles
+-   Filament admin panel integration
+
+---
+
+<p align="center">
+Made with ❤️ by <a href="https://github.com/fauzannursalma">Fauzan Nur Salma</a>
+</p>
