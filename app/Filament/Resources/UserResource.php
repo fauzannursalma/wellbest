@@ -54,6 +54,16 @@ class UserResource extends Resource
                     ->searchable(),
                 TextColumn::make('email')
                     ->searchable(),
+                TextColumn::make('roles.name')
+                ->label('Role')
+                ->badge()
+                ->color(fn (string $state): string => match ($state) {
+                    'super_admin' => 'success',
+                    'staff_machine' => 'info',
+                    'staff_production' => 'warning',
+                    'staff_general' => 'danger',
+                    default => 'secondary',
+                }),
                 TextColumn::make('created_at')
                     ->dateTime()
             ])
